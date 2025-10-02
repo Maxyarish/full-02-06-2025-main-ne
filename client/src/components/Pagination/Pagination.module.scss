@@ -1,0 +1,17 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 15px 0;
+  color: #55358d;
+  cursor: pointer;
+  select {
+    padding: 3px;
+    border: none;
+    outline: none;
+    background-color: #55358d;
+    color: white;
+    border-radius: 25%;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,10 @@
+PATCH http://localhost:3000/products/686bcf335c028b6ec77d7319 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MGYxZGVhYmRiNDNjMjEzNWFjMCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjgzODAzMSwiZXhwIjoxNzU3NDQyODMxfQ.URardbII3q4WielgVU9kTOBuUHWBnN9elypAI0GCqBU
+
+{
+  "title": "Milk",
+  "price":20,
+  "category": "684704b780353145ce2842bc",
+  "isSale":true
+}
