@@ -55,7 +55,8 @@ export const getProductSale = () => apiClient.get(`/products/sale`);
 export const getAdminStats = () => apiClient.get("/stats/admin-stats");
 
 export const getSearchProducts = (query) =>
-  apiClient.get(`/products/search?q=${query}`);
+  apiClient.get(`/products/search?q=${query}`); 
+
 
 export const getProductsFilters = (params) => {
   const query = queryString.stringify(params);
