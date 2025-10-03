@@ -24,7 +24,7 @@ const HomePage = () => {
     <section className={styles.wrapper}>
       <ProductsFilter />
       <div className={styles.content}>
-        <h2>Home</h2> 
+        <h2>Home</h2>|
          <Link to="/sale" >
           <h2>Sale</h2>
         </Link>

@@ -23,14 +23,13 @@ const ProductItem = (props) => {
     <article className={styles.product} onClick={navigateProduct}>
         <h1>{title}</h1>
       <div className={styles.pic}>
-        <img
+        <img 
           src={`${CONSTANTS.BASE_URL}/${CONSTANTS.UPLOAD_FOLDER}/${images[0]}`}
         />
       </div>
       <h2>price:{price} uah</h2>
       <h2>category: {category?.name}</h2>
       <h2 style={{ color: stockQty > 0 ? "#4CAF50" : "#d32f2f" }}>
-        {" "}
         {stockQty > 0 ? "Available" : "Not Available"}
       </h2>
       <Icon path={mdiCartArrowDown} size={1} onClick={handleAddToCart} />
