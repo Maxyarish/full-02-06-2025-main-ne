@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'; 
+import styles from './Order.module.scss';
 
 const OrderRow = (props) => {
   const { order, setIdOrder } = props;
@@ -13,7 +14,7 @@ const OrderRow = (props) => {
       <td>{totalSumma} usd</td>
       <td>{status}</td>
       <td>
-        <button onClick={handleViewDetail}>view detail</button>
+        <button onClick={handleViewDetail}  className={styles['view-detail-button']}>view detail</button>
       </td>
     </tr>
   );

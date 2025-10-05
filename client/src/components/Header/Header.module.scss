@@ -52,15 +52,19 @@
     background-color: #9575cd;
   }
 }
-.searchInput{
-  border:1px solid transparent;
-width:90%;
-height:30px;
-padding: 10px;
-border-radius:10px;
+
+.search {
+  margin-top: -5px;
+}
+.searchInput {
+  border: 1px solid transparent;
+  width: 93%;
+  height: 30px;
+  padding: 10px;
+  border-radius: 10px;
 }
 .searchInput:focus{
-  outline:2.5px solid #060606;
+  outline:2px solid #060606;
 }
 .searchButton{
   margin-left:10px;

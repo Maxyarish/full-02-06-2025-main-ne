@@ -23,7 +23,7 @@ const CartItem = (props) => {
   return (
     <li className={styles["cart-item"]}>
       <div className={styles.info}>
-        <h3>{item.title}</h3>
+        <h5>{item.title}</h5>
         <p className={styles.price}>{item.price} uah</p>
       </div>
 

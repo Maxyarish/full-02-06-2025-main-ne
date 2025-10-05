@@ -1,6 +1,5 @@
 import React from 'react';
 import AdminOrderForm from './AdminOrderForm';
-
 const AdminOrderRow = (props) => {
   const { order } = props;
   const {

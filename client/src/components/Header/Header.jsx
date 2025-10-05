@@ -85,7 +85,7 @@ const Header = () => {
             </li>
           </ul>
 
-          <form>
+          <form className={styles.search} >
             <input
               type="text"
               placeholder="Search..."
