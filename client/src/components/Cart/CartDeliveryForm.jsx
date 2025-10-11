@@ -1,13 +1,13 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { loadStripe } from '@stripe/stripe-js';
-import CONSTANTS from '../../constants';
-import { orderDiliverySchema } from '../../validation/order.validate';
-import { createOrderThunk } from '../../store/ordersSlice';
-import { clearCart } from '../../store/cartSlice';
-import { createCheckoutSession } from '../../api';
-import styles from './Cart.module.scss';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { loadStripe } from "@stripe/stripe-js";
+import CONSTANTS from "../../constants";
+import { orderDiliverySchema } from "../../validation/order.validate";
+import { createOrderThunk } from "../../store/ordersSlice";
+import { clearCart } from "../../store/cartSlice";
+import { createCheckoutSession } from "../../api";
+import styles from "./Cart.module.scss";
 const stripePromise = loadStripe(CONSTANTS.STRIPE_SECRET_KEY);
 
 const CartDeliveryForm = (props) => {
@@ -33,9 +33,8 @@ const CartDeliveryForm = (props) => {
       }));
 
       const response = await createCheckoutSession(order._id, stripeProducts);
-      await stripe.redirectToCheckout({ sessionId: response.data.id });
-
       dispatch(clearCart());
+        response.data?.url && (window.location.href = response.data.url);
     } catch (error) {
       console.log(error);
     }
@@ -43,9 +42,9 @@ const CartDeliveryForm = (props) => {
   return (
     <Formik
       initialValues={{
-        shippingPhone: '',
+        shippingPhone: "",
         shippingMethod: CONSTANTS.SHIPPING_METHOD[0],
-        shippingAddress: '',
+        shippingAddress: "",
       }}
       validationSchema={orderDiliverySchema}
       onSubmit={onSubmit}

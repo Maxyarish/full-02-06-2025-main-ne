@@ -28,7 +28,7 @@ const OrderDetail = (props) => {
       selectedOrder._id,
       stripeProducts
     );
-    await stripe.redirectToCheckout({ sessionId: response.data.id });
+        response.data?.url && (window.location.href = response.data.url);
   };
 
   return (

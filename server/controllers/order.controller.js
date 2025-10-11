@@ -1,8 +1,8 @@
-const createError = require('http-errors');
-const Product = require('../models/Product');
-const Order = require('../models/Order');
-const CONSTANTS = require('../constants');
-const stripe = require('stripe')(CONSTANTS.STRIPE_SECRET_KEY);
+const createError = require("http-errors");
+const Product = require("../models/Product");
+const Order = require("../models/Order");
+const CONSTANTS = require("../constants");
+const stripe = require("stripe")(CONSTANTS.STRIPE_SECRET_KEY);
 
 module.exports.countAllOrders = async (req, res, next) => {
   try {
@@ -16,10 +16,10 @@ module.exports.countAllOrders = async (req, res, next) => {
 module.exports.createCheckoutSession = async (req, res, next) => {
   try {
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      payment_method_types: ["card"],
       line_items: req.body.products.map((product) => ({
         price_data: {
-          currency: 'usd',
+          currency: "usd",
           product_data: {
             name: product.title,
           },
@@ -27,11 +27,11 @@ module.exports.createCheckoutSession = async (req, res, next) => {
         },
         quantity: product.quantity,
       })),
-      mode: 'payment',
+      mode: "payment",
       success_url: `${CONSTANTS.CLIENT_URL}/success/${req.body.id}`,
       cancel_url: `${CONSTANTS.CLIENT_URL}/cancel/${req.body.id}`,
     });
-    res.status(200).send({ id: session.id });
+    res.status(200).send({id: session.id,url: session.url});
   } catch (error) {
     next(error);
   }
@@ -53,14 +53,14 @@ module.exports.createOrder = async (req, res, next) => {
       products.map(async ({ productId, quantity }) => {
         const product = await Product.findById(productId);
         if (!product) {
-          throw createError(404, 'Product not found');
+          throw createError(404, "Product not found");
         }
         if (product.stockQty < quantity) {
           throw createError(
             409,
-            'Not enough in stock ' +
+            "Not enough in stock " +
               product.title +
-              ', available ' +
+              ", available " +
               product.stockQty
           );
         }
@@ -96,8 +96,8 @@ module.exports.getAllOrders = async (req, res, next) => {
     const { limit, skip } = req.pagination;
     const orders = await Order.find(req.filter)
       .sort({ createdAt: -1 })
-      .populate('user', 'email name')
-      .populate('products.productId', 'title')
+      .populate("user", "email name")
+      .populate("products.productId", "title")
       .skip(skip)
       .limit(limit);
 
@@ -112,7 +112,7 @@ module.exports.getAccountOrders = async (req, res, next) => {
     const { limit, skip } = req.pagination;
     const orders = await Order.find({ user: req.user._id })
       .sort({ createdAt: -1 })
-      .populate('products.productId', 'title')
+      .populate("products.productId", "title")
       .skip(skip)
       .limit(limit);
 
@@ -125,16 +125,16 @@ module.exports.getAccountOrders = async (req, res, next) => {
 module.exports.getOrder = async (req, res, next) => {
   try {
     const order = await Order.findById(req.params.orderId)
-      .populate('user', 'email')
-      .populate('products.productId', 'title');
+      .populate("user", "email")
+      .populate("products.productId", "title");
 
     if (!order) {
-      throw createError(404, 'Order not found');
+      throw createError(404, "Order not found");
     }
 
-    if (req.user.role !== 'admin') {
+    if (req.user.role !== "admin") {
       if (req.user._id.toString() !== order.user._id.toString()) {
-        throw createError(403, 'Permission denided');
+        throw createError(403, "Permission denided");
       }
     }
 
@@ -150,13 +150,13 @@ module.exports.updateStatusOrder = async (req, res, next) => {
     const { orderId } = req.params;
     const order = await Order.findById(orderId);
     if (!order) {
-      throw createError(404, 'Order not found');
+      throw createError(404, "Order not found");
     }
     order.status = status;
     await order.save();
 
-    await order.populate('user', 'email');
-    await order.populate('products.productId', 'title');
+    await order.populate("user", "email");
+    await order.populate("products.productId", "title");
 
     res.status(200).send({ data: order });
   } catch (error) {

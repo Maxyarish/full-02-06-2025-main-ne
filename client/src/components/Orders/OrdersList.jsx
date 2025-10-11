@@ -12,7 +12,6 @@ const OrdersList = (props) => {
           <th>data</th>
           <th>total summa</th>
           <th>status</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>{orders.map(showOrderRow)}</tbody>
