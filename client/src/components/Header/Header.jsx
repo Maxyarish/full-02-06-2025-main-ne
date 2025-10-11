@@ -60,6 +60,7 @@ const Header = () => {
             <Link to="/register">Sign up</Link>
             <Link to="/login">Sign in</Link>
           </>
+       
         )}
       </div>
 
@@ -77,10 +78,10 @@ const Header = () => {
                 Cart:
                 {items.length > 0 && (
                   <span>
-                    {items.length} items 
+                    {items.length} items: {totalPrice.toFixed(2)}$
                   </span>
                 )}
-                 {totalPrice.toFixed(2)}$
+               
               </NavLink>
             </li>
           </ul>

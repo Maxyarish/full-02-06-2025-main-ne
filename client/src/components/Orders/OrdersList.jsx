@@ -8,10 +8,11 @@ const OrdersList = (props) => {
     <table>
       <thead>
         <tr>
-          <th>order id</th>
-          <th>data</th>
-          <th>total summa</th>
-          <th>status</th>
+          <th>Order Id</th>
+          <th>Data</th>
+          <th>Total summa</th>
+          <th>Status</th>
+          <th>Details</th>
         </tr>
       </thead>
       <tbody>{orders.map(showOrderRow)}</tbody>
