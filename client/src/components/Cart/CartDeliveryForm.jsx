@@ -15,7 +15,6 @@ const CartDeliveryForm = (props) => {
   const dispatch = useDispatch();
   const onSubmit = async (values) => {
     try {
-      const stripe = await stripePromise;
       const orderValues = {
         products: items.map((item) => ({
           productId: item._id,

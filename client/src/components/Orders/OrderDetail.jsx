@@ -18,7 +18,6 @@ const OrderDetail = (props) => {
   }, [dispatch, idOrder]);
 
   const handlePayment = async () => {
-    const stripe = await stripePromise;
     const stripeProducts = selectedOrder.products.map((product) => ({
       title: product.productId?.title || "Product",
       productPrice: Number(product?.productPrice),
