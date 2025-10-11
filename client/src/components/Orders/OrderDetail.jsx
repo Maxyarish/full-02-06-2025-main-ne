@@ -27,7 +27,7 @@ const OrderDetail = (props) => {
       selectedOrder._id,
       stripeProducts
     );
-        response.data?.url && (window.location.href = response.data.url);
+    return response.data?.url && (window.location.href = response.data.url);
   };
 
   return (

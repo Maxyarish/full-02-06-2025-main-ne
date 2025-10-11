@@ -33,7 +33,7 @@ const CartDeliveryForm = (props) => {
 
       const response = await createCheckoutSession(order._id, stripeProducts);
       dispatch(clearCart());
-        response.data?.url && (window.location.href = response.data.url);
+        return response.data?.url && (window.location.href = response.data.url);
     } catch (error) {
       console.log(error);
     }

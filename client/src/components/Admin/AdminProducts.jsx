@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllProductsThunk } from '../../store/productsSlice';
-import AdminProductRow from './AdminProductRow';
-import AdminProductsForm from './AdminProductsForm';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProductsThunk } from "../../store/productsSlice";
+import AdminProductRow from "./AdminProductRow";
+import AdminProductsForm from "./AdminProductsForm";
 
 const AdminProducts = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,11 @@ const AdminProducts = () => {
   };
 
   const showProducts = (product) => (
-    <AdminProductRow key={product._id} product={product} handleUpdate={handleUpdate}/>
+    <AdminProductRow
+      key={product._id}
+      product={product}
+      handleUpdate={handleUpdate}
+    />
   );
   return (
     <section>
