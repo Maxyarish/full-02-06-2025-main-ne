@@ -1,4 +1,5 @@
 const Changelog = require("../models/Changelog");
+const createError = require("http-errors");
 
 module.exports.createChangelog = async (req, res, next) => {
   try {
@@ -13,6 +14,18 @@ module.exports.getAllChangelogs = async (req, res, next) => {
   try {
     const changelogs = await Changelog.find().sort({ releaseDate: -1 });
     res.status(200).send({ data: changelogs });
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports.deleteChangelog = async (req, res, next) => {
+try{
+    const { idChangelog } = req.params;
+    const changelog = await Changelog.findByIdAndDelete(idChangelog);
+    if (!changelog) {
+      throw createError(404, "Changelog not found");
+    }
+    res.status(200).send({ data:changelog});
   } catch (error) {
     next(error);
   }
