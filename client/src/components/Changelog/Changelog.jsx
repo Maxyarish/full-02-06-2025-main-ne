@@ -22,7 +22,7 @@ const Changelog = () => {
           <div key={changelog._id} className={styles.changelogItem}>
             <h3 >{changelog.title}</h3>
             <h3>{changelog.version}</h3>
-            <p>{changelog.description}</p>
+            <p style={{whiteSpace:'pre-wrap'}}> {changelog.description}</p>
             <p>{changelog.releaseDate}</p>
           </div>
         ))}

@@ -5,14 +5,21 @@
   flex-wrap: wrap;
   justify-content: space-between;
   > div {
-    width: 50%;
+    width: 48.5%;
+    margin: 15px 0;
   }
 }
 .info {
-  padding-left: 50px;
   p > span {
-    color: $grey300;
+    color:rgb(115, 115, 115);
   }
+   background-color:rgb(227, 227, 227);
+ box-shadow: 0 0 15px rgba(0, 0, 0, 0.299);
+
+  border-radius: 20px;
+  padding: 8px;
+  margin: 15px 0; ;
+
 }
 
 .category {
@@ -21,31 +28,18 @@
   font-weight: 600;
 }
 .price {
-  font-size: 1.5em;
-  margin: 0;
+  font-size: 1.2em;
 }
 
 .images {
+  margin: 15px 0;
+  background-color: #cbaff779;
+  border-radius: 30px;
+  border:1.5px solid rgb(193, 193, 193);
   button {
     &:hover {
-      background-color: transparent;
       color: $primary;
     }
   }
 }
 
-:global(.image-gallery-slide img) {
-  height: 300px;
-  object-fit: contain;
-}
-
-:global(.image-gallery-thumbnail img) {
-  height: 40px;
-  object-fit: contain;
-}
-
-:global(.image-gallery-content.fullscreen .image-gallery-slide img) {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}

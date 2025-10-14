@@ -78,7 +78,7 @@ const Header = () => {
                 <span>
                   {items.length > 0
                     ? `${items.length} items: ${totalPrice.toFixed(2)}$`
-                    : "0"}
+                    : "0 items: 0$"}
                 </span>
               </NavLink>
             </li>

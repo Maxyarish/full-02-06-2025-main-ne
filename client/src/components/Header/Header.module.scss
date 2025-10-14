@@ -7,7 +7,7 @@
 }
 
 .top-header {
-  font-weight: 510;
+  font-weight: 500;
   font-size: xx-large;
   display: flex;
   justify-content: space-between;
@@ -31,26 +31,26 @@
   justify-content: center;
   font-size: xx-large;
   white-space: nowrap;
-  gap: 10px;
+  gap: 15px;
   padding: 10px 0;
-  .home {
-    border: 0.5px solid transparent;
-    border-radius: 15px;
-    background-color: #9575cd;
-  }
+transform: translateY(15px);
+a {
+  border: 0.5px solid transparent;
+  padding: 9px 5px;
+  border-radius: 15px;
+  font-weight: 500; 
+  font-size: x-large;
+  color: rgb(213, 213, 213);
+  transition: all 0.5s ease; 
+}
 
-  a {
-    border: 0.5px solid transparent;
-    padding: 8px 15px;
-    border-radius: 15px;
-    font-weight: 490;
-    font-size: x-large;
-    color: rgb(213, 213, 213);
-    transition: background-color 0.5s ease;
-  }
-  a:hover {
-    background-color: #9575cd;
-  }
+a:hover,
+a:focus {
+  padding: 9px 15px;
+  background-color: #9575cd;
+  color: rgb(213, 213, 213);
+}
+
 }
 
 .search {
@@ -75,14 +75,14 @@ transform: translateY(5px);
   border:0.5px solid transparent;
   padding:5px 10px;
   cursor:pointer;
-  transition: background-color 0.5s ease;
 }
 @media screen and (max-width: 1024px) {
   .header {
     font-size:20px;
     padding: 15px 25px;
-    box-sizing: border-box;
-
+  }
+  .main-menu{
+    transform:none;
   }
    .top-header{
     font-size: x-large;

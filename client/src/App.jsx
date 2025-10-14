@@ -21,6 +21,7 @@ import SalePage from "./pages/SalePage";
 import SearchResults from "./pages/SearchResultsPage";
 import AdminStatsPage from "./pages/AdminStatsPage";
 import ChangelogPage from "./pages/ChangelogPage";
+import AdminChangelog from "./components/Admin/AdminChangelog";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -97,6 +98,12 @@ const App = () => {
               }
             />
           </Route>
+          <Route
+            path="/admin-panel/changelogs"
+            element={
+              user?.role === "admin" ? <AdminChangelog /> : <Navigate to="/" />
+            }
+          ></Route>
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>

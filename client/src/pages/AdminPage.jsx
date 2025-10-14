@@ -39,6 +39,13 @@ const AdminPage = () => {
             Stats
           </NavLink>
         </li>
+          <li>
+          <NavLink
+            to="/admin-panel/changelogs"
+          >
+            Changelogs
+          </NavLink>
+        </li>
       </ul>
       <Outlet />
     </div>

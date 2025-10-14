@@ -22,19 +22,19 @@ const HomePage = () => {
 
   return (
     <section className={styles.wrapper}>
-      <Link to="/changelog" >
-        <h2 className={styles.changelog}>Changelog</h2>
-      </Link>
-
-      <ProductsFilter />
+      {error && <p>{error}</p>}
+      {isLoading && <p>Loading...</p>}
       <div className={styles.content}>
         <h2>Home</h2>|
         <Link to="/sale">
           <h2>Sale</h2>
         </Link>
       </div>
-      {error && <p>{error}</p>}
-      {isLoading && <p>Loading...</p>}
+      <ProductsFilter />
+      <Link to="/changelog">
+        <h2 className={styles.changelog}>Changelog</h2>
+      </Link>
+
       <ProductsList products={products} />
 
       <Pagination
@@ -44,7 +44,7 @@ const HomePage = () => {
         amount={amount}
         setAmount={setAmount}
       />
-      <h4 style={{ color: "#55358d" }}>V 1.1.5</h4>
+      <h4 style={{ color: "#55358d" }}>V 1.2.0</h4>
     </section>
   );
 };
