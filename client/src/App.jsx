@@ -20,6 +20,7 @@ import AdminOrders from "./components/Admin/AdminOrders";
 import SalePage from "./pages/SalePage";
 import SearchResults from "./pages/SearchResultsPage";
 import AdminStatsPage from "./pages/AdminStatsPage";
+import ChangelogPage from "./pages/ChangelogPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const App = () => {
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/account" element={<ProfilePage />} />
-
+          <Route path="/changelog" element={<ChangelogPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/success/:idOrder" element={<SuccessPage />} />
           <Route path="/cancel/:idOrder" element={<CancelPage />} />

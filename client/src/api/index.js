@@ -62,3 +62,7 @@ export const getProductsFilters = (params) => {
   const query = queryString.stringify(params);
   return apiClient.get(`/products?${query}`);
 };
+
+export const createChangelog = (values) => apiClient.post('/changelogs', values);
+export const getAllChangelogs = () => apiClient.get('/changelogs');
+export const deleteChangelog = (id) => apiClient.delete(`/changelogs/${id}`);
