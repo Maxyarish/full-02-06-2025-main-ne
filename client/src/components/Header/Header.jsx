@@ -60,7 +60,6 @@ const Header = () => {
             <Link to="/register">Sign up</Link>
             <Link to="/login">Sign in</Link>
           </>
-       
         )}
       </div>
 
@@ -76,17 +75,16 @@ const Header = () => {
             <li>
               <NavLink to="/cart">
                 Cart:
-                {items.length > 0 && (
-                  <span>
-                    {items.length} items: {totalPrice.toFixed(2)}$
-                  </span>
-                )}
-               
+                <span>
+                  {items.length > 0
+                    ? `${items.length} items: ${totalPrice.toFixed(2)}$`
+                    : "0"}
+                </span>
               </NavLink>
             </li>
           </ul>
 
-          <form className={styles.search} >
+          <form className={styles.search}>
             <input
               type="text"
               placeholder="Search..."

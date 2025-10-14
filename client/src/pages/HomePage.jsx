@@ -44,7 +44,7 @@ const HomePage = () => {
         amount={amount}
         setAmount={setAmount}
       />
-      <h4 style={{ color: "#55358d" }}>V 1.1.4</h4>
+      <h4 style={{ color: "#55358d" }}>V 1.1.5</h4>
     </section>
   );
 };
