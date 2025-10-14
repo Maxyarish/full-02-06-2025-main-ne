@@ -4,7 +4,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MGYxZ
 
 {
     "title": "NEW `Changelog` FUNCTIONALITY ADDED",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Added a new `Changelog` functionality to keep users informed about the latest updates and improvements. This feature enhances transparency and helps users stay up-to-date with the application's development.",
     "date": "2025-10-14"
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductSaleThunk } from "../store/productsSlice";
 import ProductsList from "../components/ProductsList/ProductsList";
 import styles from "./Pages.module.scss";
-
+import { Link } from "react-router-dom";
 const SalePage = () => {
   const dispatch = useDispatch();
   const { products, error, isLoading } = useSelector((state) => state.products);
@@ -14,7 +14,10 @@ const SalePage = () => {
 
   return (
     <section className={styles.sale}>
-      <h1>Sale</h1>
+      <div className={styles.content}>
+       <Link to="/"><h2>Home</h2></Link>| <h2>Sale</h2>
+      </div>
+
       {error && <p>{error}</p>}
       {isLoading && <p>Loading...</p>}
       {products.length === 0 ? (

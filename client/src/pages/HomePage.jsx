@@ -7,7 +7,6 @@ import Pagination from "../components/Pagination/Pagination";
 import styles from "./Pages.module.scss";
 import { Link } from "react-router-dom";
 import CONSTANTS from "../constants";
-import ChangelogPage from "./ChangelogPage";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -23,19 +22,21 @@ const HomePage = () => {
 
   return (
     <section className={styles.wrapper}>
-      <Link to='/changelog'>  Changelog</Link>
-    
+      <Link to="/changelog" >
+        <h2 className={styles.changelog}>Changelog</h2>
+      </Link>
+
       <ProductsFilter />
       <div className={styles.content}>
-        <h2>Home</h2>
-         <Link to="/sale" >
+        <h2>Home</h2>|
+        <Link to="/sale">
           <h2>Sale</h2>
         </Link>
-        </div>
-        {error && <p>{error}</p>}
-        {isLoading && <p>Loading...</p>}
-        <ProductsList products={products} />
-     
+      </div>
+      {error && <p>{error}</p>}
+      {isLoading && <p>Loading...</p>}
+      <ProductsList products={products} />
+
       <Pagination
         page={page}
         setPage={setPage}

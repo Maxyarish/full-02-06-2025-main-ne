@@ -9,13 +9,12 @@ h4{
 display: flex;
 justify-content: center;
 color: gray;
-
 }
 .content {
 display: flex;
 align-items: center;
 justify-content: center;
-gap: 20px;
+gap: 15px;
 }
 .personal-info {
   border-radius: 10px;
@@ -30,4 +29,11 @@ gap: 20px;
   padding: 10px;
   width: 100%;
  }
+}
+.changelog  {
+  text-align: center;
+  background-color: rgb(231, 231, 231);
+  color: rgb(98, 98, 98);
+  border-radius: 15px;
+  padding: 5px 7px;
 }
