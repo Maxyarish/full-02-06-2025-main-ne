@@ -23,7 +23,7 @@ const Changelog = () => {
             <h3 >{changelog.title}</h3>
             <h3>{changelog.version}</h3>
             <p style={{whiteSpace:'pre-wrap'}}> {changelog.description}</p>
-            <p>{changelog.releaseDate}</p>
+            <p>{new Date(changelog.releaseDate).toLocaleDateString()}</p>
           </div>
         ))}
     </section>

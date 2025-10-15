@@ -23,7 +23,21 @@
     &:hover {
       background-color: #7e57c2;
     }
-  }
+ 
+  }  
+  a {
+  padding: 9px 5px;
+  border-radius: 15px;
+  font-weight: 500; 
+  font-size: x-large;
+  color: rgb(213, 213, 213);
+  transition: all 0.5s ease; 
+}
+  a:hover{
+  padding: 9px 15px;
+  background-color: #9575cd;
+  color: rgb(213, 213, 213);
+}
 }
 
 .main-menu {
@@ -44,8 +58,7 @@ a {
   transition: all 0.5s ease; 
 }
 
-a:hover,
-a:focus {
+a:hover{
   padding: 9px 15px;
   background-color: #9575cd;
   color: rgb(213, 213, 213);

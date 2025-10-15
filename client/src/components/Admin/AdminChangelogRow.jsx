@@ -15,7 +15,7 @@ const AdminChangelogRow = ({ changelog }) => {
       <td>{title}</td>
       <td>{version}</td>
       <td  style={{ whiteSpace: "pre-wrap" }}>{description}</td>
-      <td>{releaseDate}</td>
+     <td>{new Date(changelog.releaseDate).toLocaleDateString()}</td>
       <td>
         <button onClick={() => handleDelete(_id)}>Delete</button>
       </td>
