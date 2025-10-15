@@ -33,17 +33,18 @@ const AdminPage = () => {
         </li>
         <li>
           <NavLink
+            to="/admin-panel/changelogs"
+            className={({ isActive }) => (isActive ? styles.active : "")}
+          >
+            Changelogs
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/admin-panel/stats"
             className={({ isActive }) => (isActive ? styles.active : "")}
           >
             Stats
-          </NavLink>
-        </li>
-          <li>
-          <NavLink
-            to="/admin-panel/changelogs"
-          >
-            Changelogs
           </NavLink>
         </li>
       </ul>

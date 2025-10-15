@@ -8,11 +8,11 @@ const ChangelogPage = () => {
   );
 
   return (
-    <section>
+    <div>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <Changelog changelogs={changelogs} />
-    </section>
+    </div>
   );
 };
 

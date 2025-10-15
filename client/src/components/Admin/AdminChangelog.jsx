@@ -34,7 +34,7 @@ const AdminChangelog = () => {
   );
 
   return (
-    <section>
+    <div>
       <h3>Changelogs</h3>
       {error && <p>{error}</p>}
       {isLoading && <p>Loading...</p>}
@@ -64,7 +64,7 @@ const AdminChangelog = () => {
           cancelForm={cancelForm}
         />
       )}
-    </section>
+    </div>
   );
 };
 
