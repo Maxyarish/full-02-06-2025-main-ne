@@ -5,12 +5,13 @@
   padding: 0 3%;
 text-align: center;
 }
-
-h4{
-display: flex;
-justify-content: center;
-color: gray;
+.wrapper-nav{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  gap: 15px;
 }
+
 .content {
 display: flex;
 align-items: center;
@@ -37,4 +38,10 @@ gap: 15px;
   color: rgb(98, 98, 98);
   border-radius: 15px;
   padding: 5px 7px;
+}
+.category-nav{
+       display: flex;
+          justify-content:center;
+          align-items: center;
+          gap: 15px;
 }
