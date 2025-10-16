@@ -19,9 +19,9 @@ import ProfilePage from "./pages/ProfilePage";
 import AdminOrders from "./components/Admin/AdminOrders";
 import SalePage from "./pages/SalePage";
 import SearchResults from "./pages/SearchResultsPage";
-import AdminStatsPage from "./pages/AdminStatsPage";
 import ChangelogPage from "./pages/ChangelogPage";
 import AdminChangelog from "./components/Admin/AdminChangelog";
+import AdminStats from "./components/Admin/AdminStats";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -91,19 +91,23 @@ const App = () => {
               path="/admin-panel/stats"
               element={
                 user?.role === "admin" ? (
-                  <AdminStatsPage />
+                  <AdminStats />
+                ) : (
+                  <Navigate to="/" />
+                )
+              }
+            />
+            <Route
+              path="/admin-panel/changelogs"
+              element={
+                user?.role === "admin" ? (
+                  <AdminChangelog />
                 ) : (
                   <Navigate to="/" />
                 )
               }
             />
           </Route>
-          <Route
-            path="/admin-panel/changelogs"
-            element={
-              user?.role === "admin" ? <AdminChangelog /> : <Navigate to="/" />
-            }
-          ></Route>
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>
