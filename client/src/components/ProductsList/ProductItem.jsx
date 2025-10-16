@@ -19,13 +19,18 @@ const ProductItem = (props) => {
   const navigateProduct = () => {
     navigate(`/products/${product._id}`);
   };
+    const showImages = (img, i) => (
+    <img
+      key={i}
+      src={`${CONSTANTS.BASE_URL}/${CONSTANTS.UPLOAD_FOLDER}/${img}`}
+      alt={title}
+    />
+  );
   return (
     <article className={styles.product} onClick={navigateProduct}>
         <h1>{title}</h1>
       <div className={styles.pic}>
-        <img 
-          src={`${CONSTANTS.BASE_URL}/${CONSTANTS.UPLOAD_FOLDER}/${images[0]}`}
-        />
+        {images.map(showImages)}
       </div>
       <h2>price:{price} uah</h2>
       <h2>category: {category?.name}</h2>

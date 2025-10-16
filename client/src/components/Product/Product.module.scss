@@ -1,4 +1,4 @@
-@use '/src/common/styles/colors' as *;
+@use "/src/common/styles/colors" as *;
 
 .product {
   display: flex;
@@ -11,15 +11,13 @@
 }
 .info {
   p > span {
-    color:rgb(115, 115, 115);
+    color: rgb(115, 115, 115);
   }
-   background-color:rgb(227, 227, 227);
- box-shadow: 0 0 15px rgba(0, 0, 0, 0.299);
-
+  background-color: rgb(227, 227, 227);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.299);
   border-radius: 20px;
   padding: 8px;
-  margin: 15px 0; ;
-
+  margin: 15px 0;
 }
 
 .category {
@@ -32,14 +30,9 @@
 }
 
 .images {
-  margin: 15px 0;
+  overflow: hidden;
+  border-radius: 25px;
+  border: 1.5px solid rgb(193, 193, 193);
   background-color: #cbaff779;
-  border-radius: 30px;
-  border:1.5px solid rgb(193, 193, 193);
-  button {
-    &:hover {
-      color: $primary;
-    }
-  }
+  height: 100%;
 }
-

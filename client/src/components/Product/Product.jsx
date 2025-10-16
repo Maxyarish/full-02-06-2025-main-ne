@@ -14,7 +14,6 @@ const Product = (props) => {
 
   const imagesGallery = images.map((img) => ({
     original: `${CONSTANTS.BASE_URL}/${CONSTANTS.UPLOAD_FOLDER}/${img}`,
-    thumbnail: `${CONSTANTS.BASE_URL}/${CONSTANTS.UPLOAD_FOLDER}/${img}`,
   }));
 
   const handleAddToCart = () => {
