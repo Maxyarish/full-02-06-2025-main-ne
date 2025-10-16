@@ -26,9 +26,10 @@ const HomePage = () => {
       {isLoading && <p>Loading...</p>}
       <div className={styles.content}>
         <h2>Home</h2>|
-        <Link to="/sale">
-          <h2>Sale</h2>
+        <Link to='/sale'>
+        <h2>Sale</h2>
         </Link>
+       
       </div>
       <ProductsFilter />
       <Link to="/changelog">
