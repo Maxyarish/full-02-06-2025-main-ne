@@ -3,7 +3,9 @@ import CONSTANTS from "../../constants";
 import { useDispatch } from "react-redux";
 import { deleteProductThunk } from "../../store/productsSlice";
 import Icon from "@mdi/react";
-import { mdiDelete, mdiUpdate } from "@mdi/js";
+import { mdiDelete, 
+  
+ } from "@mdi/js";
 import styles from "./Admin.module.scss";
 
 const AdminProductRow = (props) => {
