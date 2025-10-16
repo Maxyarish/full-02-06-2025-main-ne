@@ -15,10 +15,10 @@ const AdminCategoryRow = (props) => {
     <tr>
       <td>{category.name}</td>
       <td>
-        <button onClick={() => handleUpdate(category)} className={styles["admin-actions"]}><Icon path={mdiUpdate} size={0.7} /></button>
+        <button onClick={() => handleUpdate(category)} className={styles["admin-actions"]}><Icon path={mdiUpdate} size={1} /></button>
       </td>
       <td>
-        <button onClick={() => handleDelete(category._id)} className={styles["admin-actions"]}><Icon path={mdiDelete} size={0.7} /></button>
+        <button onClick={() => handleDelete(category._id)} className={styles["admin-actions"]}><Icon path={mdiDelete} size={1} /></button>
       </td>
     </tr>
   );

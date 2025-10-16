@@ -3,7 +3,7 @@ import CONSTANTS from "../../constants";
 import { useDispatch } from "react-redux";
 import { deleteProductThunk } from "../../store/productsSlice";
 import Icon from "@mdi/react";
-import { mdiDelete, } from "@mdi/js";
+import { mdiDelete,mdiUpdate } from "@mdi/js";
 import styles from "./Admin.module.scss";
 
 const AdminProductRow = (props) => {
@@ -38,7 +38,7 @@ const AdminProductRow = (props) => {
           }}
           className={styles["admin-actions"]}
         >
-          <Icon path={mdiUpdate} size={0.7} />
+          <Icon path={mdiUpdate} size={1} />
         </button>
       </td>
       <td>
@@ -48,7 +48,7 @@ const AdminProductRow = (props) => {
           }}
           className={styles["admin-actions"]}
         >
-          <Icon path={mdiDelete} size={0.7} />
+          <Icon path={mdiDelete} size={1} />
         </button>
       </td>
     </tr>
