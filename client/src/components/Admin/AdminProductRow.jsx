@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CONSTANTS from "../../constants";
 import { useDispatch } from "react-redux";
-import { deleteProductThunk } from "../../store/productsSlice";
+import { deleteProductThunk, getAllProductsThunk } from "../../store/productsSlice";
 import Icon from "@mdi/react";
 import { mdiDelete,mdiUpdate } from "@mdi/js";
 import styles from "./Admin.module.scss";
@@ -11,15 +11,19 @@ const AdminProductRow = (props) => {
   const { _id, title, description, price, stockQty, category, isSale, images } =
     product;
   const dispatch = useDispatch();
-  const handleDelete = (id) => {
+ 
+  useEffect(()=>{
+ dispatch(getAllProductsThunk())
+  },[dispatch])
+   const handleDelete = (id) => {
     dispatch(deleteProductThunk(id));
   };
   const showImages = (img, i) => (
     <img
       key={i}
-      style={{ width: "30px" }}
       src={`${CONSTANTS.BASE_URL}/${CONSTANTS.UPLOAD_FOLDER}/${img}`}
       alt={title}
+      style={{width:'100%',height:'100%',maxHeight:'150px'}}
     />
   );
   return (

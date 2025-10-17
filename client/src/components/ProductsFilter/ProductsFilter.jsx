@@ -13,18 +13,11 @@ const ProductsFilter = () => {
 
   const handleApplyFilters = () => {
     const params = {};
-    if (minPrice) {
-      params.minPrice = minPrice;
-    }
-    if (maxPrice) {
-      params.maxPrice = maxPrice;
-    }
-    if (availability) {
-      params.availability = true;
-    }
-    if (sale) {
-      params.sale = true;
-    }
+    if (minPrice) params.minPrice = minPrice;
+    if (maxPrice)  params.maxPrice = maxPrice;
+    if (availability) params.availability = true;
+    if (sale) params.sale = true;
+    
     dispatch(getProductsFiltersThunk(params));
   };
 
