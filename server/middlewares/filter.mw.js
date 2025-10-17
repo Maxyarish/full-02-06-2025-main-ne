@@ -1,6 +1,6 @@
 module.exports.filterProducts = async (req, res, next) => {
   try {
-    const { minPrice, maxPrice, availability, category, sale } = req.query;
+    const { minPrice, maxPrice, availability, category } = req.query;
     req.filter = {};
     if (minPrice || maxPrice) {
       req.filter.price = {};
@@ -21,9 +21,6 @@ module.exports.filterProducts = async (req, res, next) => {
     }
     if (category) {
       req.filter.category = category;
-    }
-    if (sale) {
-      req.filter.isSale = sale === 'true';
     }
     next();
   } catch (error) {

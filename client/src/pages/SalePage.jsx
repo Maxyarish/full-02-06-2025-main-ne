@@ -4,6 +4,7 @@ import { getProductSaleThunk } from "../store/productsSlice";
 import ProductsList from "../components/ProductsList/ProductsList";
 import styles from "./Pages.module.scss";
 import { Link } from "react-router-dom";
+
 const SalePage = () => {
   const dispatch = useDispatch();
   const { products, error, isLoading } = useSelector((state) => state.products);

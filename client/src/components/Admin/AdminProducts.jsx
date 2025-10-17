@@ -5,7 +5,7 @@ import AdminProductRow from "./AdminProductRow";
 import AdminProductsForm from "./AdminProductsForm";
 
 const AdminProducts = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const { products, error } = useSelector((state) => state.products);
   const [isCreating, setIsCreating] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);

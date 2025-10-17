@@ -16,8 +16,6 @@ const ProductsFilter = () => {
     if (minPrice) params.minPrice = minPrice;
     if (maxPrice)  params.maxPrice = maxPrice;
     if (availability) params.availability = true;
-    if (sale) params.sale = true;
-    
     dispatch(getProductsFiltersThunk(params));
   };
 
@@ -56,18 +54,6 @@ const ProductsFilter = () => {
           />
           Тільки в наявності
         </label>
-        <div>
-          <div>
-            <label>
-              <input
-                type="checkbox"
-                checked={sale}
-                onChange={(e) => setSale(e.target.checked)}
-              />
-              Тільки зі знижками
-            </label>
-          </div>
-        </div>
       </div>
 
       <div className={styles.btn}>

@@ -7,8 +7,6 @@
 }
 
 .top-header {
-  font-weight: 500;
-  font-size: xx-large;
   display: flex;
   justify-content: space-between;
   color: rgb(213, 213, 213);
@@ -68,17 +66,17 @@ a:hover{
 
 .searchInput {
   border: 1px solid transparent;
-  width: 93%;
+  transform: translateY(-5px);
+  width: 92%;
   height: 30px;
-  padding: 10px;
+  padding: 1.5px 0;
   border-radius: 10px;
 }
 .searchInput:focus{
-  outline:2px solid #060606;
+  outline:2px solid #462087;
 }
 .searchButton{
   margin-left:7px;
-transform: translateY(5px);
   border-radius:10px;
   background-color:#9575cd;
   color:white;
@@ -88,17 +86,20 @@ transform: translateY(5px);
 }
 @media screen and (max-width: 1024px) {
   .header {
-    font-size:20px;
-    padding: 15px 25px;
-  }
-  .main-menu{
-    transform:none;
+    padding: 15px 20px;
   }
   .main-menu{
     display: block;
+        transform:none;
     a{
       font-size: large;
     }
   }
+  .searchInput {
+  transform: translateY(5px);
+  }
+  .searchButton{
+   transform: translateY(10px);
+}
 }
 

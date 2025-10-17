@@ -73,9 +73,7 @@ module.exports.updateProduct = async (req, res, next) => {
       );
     }
 
-    const updatedImages =
-      req.files?.map((item) => item.filename) || product.images;
-
+    const updatedImages =req.files?.map((item) => item.filename) || product.images;
     Object.assign(product, req.body, { images: updatedImages });
     await product.save();
 
@@ -184,7 +182,6 @@ module.exports.getFiltersData = async (req, res, next) => {
     const stats = {
       total: await Product.countDocuments(),
       inStock: await Product.countDocuments({ stockQty: { $gt: 0 } }),
-      onSale: await Product.countDocuments({ isSale: true }),
     };
 
     const filtersData = {

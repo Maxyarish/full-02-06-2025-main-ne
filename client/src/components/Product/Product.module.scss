@@ -7,6 +7,17 @@
   > div {
     width: 48.5%;
     margin: 15px 0;
+   
+  }
+  button{
+    padding: 10px 25px;
+      transition: all 0.6s ease;   
+       font-size: 1em;
+  }
+  button:hover{
+    font-size: 1.3rem;
+   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.159);
+ 
   }
 }
 .info {
