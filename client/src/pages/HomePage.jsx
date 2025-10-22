@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsThunk } from "../store/productsSlice";
-import ProductsList from "../components/ProductsList/ProductsList";
 import ProductsFilter from "../components/ProductsFilter/ProductsFilter";
 import Pagination from "../components/Pagination/Pagination";
 import styles from "./Pages.module.scss";
 import { Link } from "react-router-dom";
 import CONSTANTS from "../constants";
+import ProductsList from '../components/ProductsList/ProductsList';
 
 const HomePage = () => {
   const dispatch = useDispatch();
