@@ -7,21 +7,9 @@ import {
   getOneProduct,
   getProductSale,
   getSearchProducts,
-  getProductsFilters,
 } from "../api";
 import { pendingCase, rejectedCase } from "./functions";
 
-export const getProductsFiltersThunk = createAsyncThunk(
-  "products/getProductsFiltersThunk",
-  async (query, thunkAPI) => {
-    try {
-      const response = await getProductsFilters(query);
-      return response.data.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error?.message);
-    }
-  }
-);
 export const getSearchProductsThunk = createAsyncThunk(
   "products/getSearchProductsThunk",
   async (query, thunkAPI) => {
@@ -47,13 +35,13 @@ export const getOneProductThunk = createAsyncThunk(
 
 export const getAllProductsThunk = createAsyncThunk(
   "products/getAllProductsThunk",
-  async (options , thunkAPI) => {
+  async (options, thunkAPI) => {
     try {
       const response = await getAllProducts(options);
       return {
         products: response.data.data,
-        total: response.data.total, 
-      }
+        total: response.data.total,
+      };
     } catch (error) {
       return thunkAPI.rejectWithValue(error?.message);
     }
@@ -115,17 +103,17 @@ const productsSlice = createSlice({
     isLoading: false,
     selectedProduct: null,
     totalProducts: 0,
+    filters: {},
   },
-  reducers: {},
+  reducers: {
+    setFilters(state, action) {
+      state.filters = action.payload || {};
+    },
+    clearFilters(state) {
+      state.filters = {};
+    },
+  },
   extraReducers: (builder) => {
-    builder.addCase(getProductsFiltersThunk.pending, pendingCase);
-    builder.addCase(getProductsFiltersThunk.rejected, rejectedCase);
-    builder.addCase(getProductsFiltersThunk.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.error = null;
-      state.products = action.payload;
-    });
-
     builder.addCase(getOneProductThunk.pending, pendingCase);
     builder.addCase(getOneProductThunk.rejected, rejectedCase);
     builder.addCase(getOneProductThunk.fulfilled, (state, action) => {
@@ -190,5 +178,5 @@ const productsSlice = createSlice({
     });
   },
 });
-
+export const { setFilters, clearFilters } = productsSlice.actions;
 export default productsSlice.reducer;

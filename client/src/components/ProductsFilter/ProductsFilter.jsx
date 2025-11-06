@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getProductsFiltersThunk } from "../../store/productsSlice";
+import { setFilters, clearFilters } from "../../store/productsSlice";
 import styles from "./ProductsFilter.module.scss";
 
 const ProductsFilter = () => {
@@ -14,9 +14,9 @@ const ProductsFilter = () => {
   const handleApplyFilters = () => {
     const params = {};
     if (minPrice) params.minPrice = minPrice;
-    if (maxPrice)  params.maxPrice = maxPrice;
+    if (maxPrice) params.maxPrice = maxPrice;
     if (availability) params.availability = true;
-    dispatch(getProductsFiltersThunk(params));
+    dispatch(setFilters(params));
   };
 
   const handleClearFilters = () => {
@@ -24,7 +24,7 @@ const ProductsFilter = () => {
     setMaxPrice("");
     setAvailability(false);
     setSale(false);
-    dispatch(getProductsFiltersThunk());
+    dispatch(clearFilters());
   };
 
   return (

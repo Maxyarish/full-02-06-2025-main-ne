@@ -5,7 +5,7 @@ import styles from "./Admin.module.scss";
 import { createChangelogThunk } from "../../store/changelogSlice";
 import { createChangelogSchema } from "../../validation/changelog.validate";
 
-const AdminChangelogForm = ({ cancelForm }) => {
+const AdminChangelogForm = () => {
   const dispatch = useDispatch();
   const initialValues = {
     title: "",
@@ -23,7 +23,6 @@ const AdminChangelogForm = ({ cancelForm }) => {
     };
 
     dispatch(createChangelogThunk(data));
-    cancelForm();
   };
 
   return (
@@ -60,9 +59,6 @@ const AdminChangelogForm = ({ cancelForm }) => {
 
           <div>
             <button type="submit">Create</button>
-            <button type="button" onClick={cancelForm}>
-              Cancel
-            </button>
           </div>
         </Form>
       )}

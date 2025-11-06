@@ -6,19 +6,24 @@ import Pagination from "../components/Pagination/Pagination";
 import styles from "./Pages.module.scss";
 import { Link } from "react-router-dom";
 import CONSTANTS from "../constants";
-import ProductsList from '../components/ProductsList/ProductsList';
+import ProductsList from "../components/ProductsList/ProductsList";
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const { products, error, isLoading, totalProducts } = useSelector(
     (state) => state.products
   );
+  const filters = useSelector((state) => state.products.filters);
   const [page, setPage] = useState(1);
   const [amount, setAmount] = useState(CONSTANTS.PRODUCT_AMOUNT[1]);
 
   useEffect(() => {
-    dispatch(getAllProductsThunk({ page, amount }));
-  }, [dispatch, page, amount]);
+    dispatch(getAllProductsThunk({ page, amount, ...filters }));
+  }, [dispatch, page, amount, filters]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [filters]);
 
   return (
     <section className={styles.wrapper}>
@@ -26,10 +31,9 @@ const HomePage = () => {
       {isLoading && <p>Loading...</p>}
       <div className={styles.content}>
         <h2>Home</h2>|
-        <Link to='/sale'>
-        <h2>Sale</h2>
+        <Link to="/sale">
+          <h2>Sale</h2>
         </Link>
-       
       </div>
       <ProductsFilter />
       <Link to="/changelog">

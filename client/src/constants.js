@@ -6,8 +6,8 @@ const CONSTANTS = {
   ORDER_STATUS: ["new", "paid", "confirm", "shipped", "delivered", "canceled"],
   ORDER_AMOUNT: [3, 5, 10, 15],
   PRODUCT_AMOUNT: [3, 4, 6, 8],
-  // STRIPE_SECRET_KEY:
-  //   "pk_test_51RrKlARL1VqIp3S3HkswWhggVpWVkbiUdkBxbQURxCt8Iwx8r8JO7mBEeMHviV0kejBXm6dN4FfHSHmQS3hYPIm700i8EpCPGW",
+  STRIPE_SECRET_KEY:
+    "pk_test_51RrKlARL1VqIp3S3HkswWhggVpWVkbiUdkBxbQURxCt8Iwx8r8JO7mBEeMHviV0kejBXm6dN4FfHSHmQS3hYPIm700i8EpCPGW",
 };
 
 export default CONSTANTS;

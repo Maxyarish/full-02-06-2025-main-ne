@@ -56,7 +56,12 @@ const AdminProducts = () => {
         <tbody>{products?.map(showProducts)}</tbody>
       </table>
       <div>
-        <button onClick={handleCreate}>create new product</button>
+        {isCreating ? (
+
+           <button onClick={cancelForm}>cancel</button>
+        ) : (
+                   <button onClick={handleCreate}>create new product</button>
+        )}
       </div>
       {isCreating && (
         <AdminProductsForm

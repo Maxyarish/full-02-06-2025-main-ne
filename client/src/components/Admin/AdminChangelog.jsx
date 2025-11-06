@@ -26,6 +26,7 @@ const AdminChangelog = () => {
   const cancelForm = () => {
     setIsCreating(false);
   };
+
     const showChangelogs = (changelog) => (
     <AdminChangelogRow
       key={changelog._id}
@@ -55,7 +56,11 @@ const AdminChangelog = () => {
       </table>
 
       <div>
-        <button onClick={handleCreate}>Create new changelog</button>
+        {isCreating ? (
+          <button onClick={cancelForm}>Cancel</button>
+        ) : (
+          <button onClick={handleCreate}>Create new changelog</button>
+        )}
       </div>
 
       {isCreating && (

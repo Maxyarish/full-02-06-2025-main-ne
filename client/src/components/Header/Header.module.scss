@@ -4,11 +4,12 @@
   background-color: #55358d;
   padding: 35px 135px;
   overflow-y: hidden;
+  
 }
 
 .top-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   color: rgb(213, 213, 213);
   button {
     color: rgb(213, 213, 213);
@@ -17,7 +18,7 @@
     padding: 8px 30px;
     border-radius: 15px;
     background-color: #9575cd;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.4s ease;
     &:hover {
       background-color: #7e57c2;
     }
@@ -33,7 +34,6 @@
   a:hover {
     padding: 9px 15px;
     background-color: #9575cd;
-    color: rgb(213, 213, 213);
   }
 }
 

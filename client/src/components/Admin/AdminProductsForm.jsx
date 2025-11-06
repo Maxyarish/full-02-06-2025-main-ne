@@ -1,47 +1,47 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import styles from './Admin.module.scss';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import styles from "./Admin.module.scss";
 import {
   createProductThunk,
   updateProductThunk,
-} from '../../store/productsSlice';
+} from "../../store/productsSlice";
 import {
   productCreateSchema,
   productUpdateSchema,
-} from '../../validation/product.validate';
+} from "../../validation/product.validate";
 
 const AdminProductsForm = (props) => {
   const { selectedProduct, cancelForm } = props;
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.categories);
   const initialValues = {
-    title: selectedProduct?.title || '',
-    description: selectedProduct?.description || '',
-    price: selectedProduct?.price || '',
-    stockQty: selectedProduct?.stockQty || '',
+    title: selectedProduct?.title || "",
+    description: selectedProduct?.description || "",
+    price: selectedProduct?.price || "",
+    stockQty: selectedProduct?.stockQty || "",
     isSale: selectedProduct?.isSale || false,
-    category: selectedProduct?.category._id || '',
+    category: selectedProduct?.category._id || "",
     images: [],
   };
   const onSubmit = (values) => {
     const data = new FormData();
-    data.append('title', values.title);
-    data.append('description', values.description);
-    data.append('price', values.price);
-    data.append('stockQty', values.stockQty);
-    data.append('isSale', values.isSale);
-    data.append('category', values.category);
-    values.images.forEach((file) => data.append('images', file));
+    data.append("title", values.title);
+    data.append("description", values.description);
+    data.append("price", values.price);
+    data.append("stockQty", values.stockQty);
+    data.append("isSale", values.isSale);
+    data.append("category", values.category);
+    values.images.forEach((file) => data.append("images", file));
 
     if (selectedProduct) {
       dispatch(updateProductThunk({ id: selectedProduct._id, values: data }));
     } else {
       dispatch(createProductThunk(data));
     }
-
     cancelForm();
   };
+  const [isCreating, setIsCreating] = useState(!selectedProduct);
   return (
     <Formik
       initialValues={initialValues}
@@ -98,11 +98,11 @@ const AdminProductsForm = (props) => {
                 type="file"
                 multiple
                 onChange={(event) => {
-                  setFieldValue('images', Array.from(event.target.files));
+                  setFieldValue("images", Array.from(event.target.files));
                 }}
               />
             </label>
-            <button type="submit">Create</button>
+            <button type="submit">{isCreating ? "Create" : "Update"}</button>
           </Form>
         );
       }}

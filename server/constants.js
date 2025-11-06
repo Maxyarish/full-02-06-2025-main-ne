@@ -13,8 +13,8 @@ const CONSTANTS = {
   SHIPPING_METHOD: ['free', 'nova post', 'ukr post'],
   ORDER_STATUS: ['new', 'paid', 'confirm', 'shipped', 'delivered', 'canceled'],
   // Stripe TEST keys — for demo purposes only
-  // STRIPE_SECRET_KEY:
-  //   'sk_test_51RrKlARL1VqIp3S35bvczI25FNtZTfUayn7QdIMHM26Z2oN1BMvG3LforCPgDQau3kQ3Nv8VYRvNUwWyxfHlF0Xc00LQkF27to',
+   STRIPE_SECRET_KEY:
+     'sk_test_51RrKlARL1VqIp3S35bvczI25FNtZTfUayn7QdIMHM26Z2oN1BMvG3LforCPgDQau3kQ3Nv8VYRvNUwWyxfHlF0Xc00LQkF27to',
   CLIENT_URL: 'http://localhost:5173',
 };
 
