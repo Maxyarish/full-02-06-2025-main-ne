@@ -34,26 +34,23 @@ const AdminChangelogForm = () => {
       {() => (
         <Form className={styles.form}>
           <label>
-            <span>Title</span>
-            <Field name="title" />
+            <Field name="title" placeholder="Title"/>
             <ErrorMessage name="title" />
           </label>
 
           <label>
-            <span>Version</span>
-            <Field name="version" />
+            <Field name="version" placeholder="Version"/>
             <ErrorMessage name="version" />
           </label>
 
           <label>
-            <span>Description</span>
-            <Field as="textarea" name="description" />
+            <Field as="textarea" name="description" placeholder="Description" />
             <ErrorMessage name="description" />
           </label>
 
           <label>
-            <span>Release Date</span>
-            <Field name="releaseDate" type="date" />
+            <h3>Release Date</h3>
+            <Field name="releaseDate" type="date"/>
             <ErrorMessage name="releaseDate" />
           </label>
 
