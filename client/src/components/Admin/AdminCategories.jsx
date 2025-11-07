@@ -46,10 +46,9 @@ const AdminCategories = () => {
         <tbody>{categories.map(showCategory)}</tbody>
       </table>
       {isCreating ? (
-         <button  button onClick={cancelForm}>Cancel</button>
-        
-      ):(
- <button onClick={handleCreate}>Create new category</button>
+        <button onClick={cancelForm}>Cancel</button>
+      ) : (
+        <button onClick={handleCreate}>Create new category</button>
       )}
      
 

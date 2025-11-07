@@ -59,32 +59,28 @@ const AdminProductsForm = (props) => {
         return (
           <Form className={styles.form}>
             <label>
-              <span>Title</span>
-              <Field name="title" />
+              <Field name="title" placeholder="Product title" />
               <ErrorMessage name="title" />
             </label>
             <label>
-              <span>description</span>
-              <Field name="description" />
+              <Field name="description" placeholder="Product description" />
               <ErrorMessage name="description" />
             </label>
             <label>
-              <span>Price</span>
-              <Field name="price" type="number" step="0.01" />
+              <Field name="price" type="number" step="0.01" placeholder="Product price" />
               <ErrorMessage name="price" />
             </label>
             <label>
-              <span>stockQty</span>
-              <Field name="stockQty" type="number" min="0" />
+              <Field name="stockQty" placeholder="Stock quantity" type="number" min="0" />
               <ErrorMessage name="stockQty" />
             </label>
             <label>
-              <span>isSale</span>
-              <Field name="isSale" type="checkbox" />
+              <span>Is Sale</span>
+              <Field name="isSale" type="checkbox"  />
               <ErrorMessage name="isSale" />
             </label>
             <label>
-              <span>category name</span>
+              <span>Category Name</span>
               <Field name="category" as="select">
                 <option>choose category</option>
                 {categories?.map(showOption)}

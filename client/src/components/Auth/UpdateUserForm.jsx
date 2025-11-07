@@ -1,8 +1,8 @@
-import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateValidateSchema } from '../../validation/user.validate';
-import { updateUserThunk } from '../../store/authSlice';
+
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { updateValidateSchema } from "../../validation/user.validate";
+import { updateUserThunk } from "../../store/authSlice";
 
 const UpdateUserForm = (props) => {
   const { setIsUpdate } = props;
@@ -23,12 +23,15 @@ const UpdateUserForm = (props) => {
     dispatch(updateUserThunk({ id: user._id, values: data }));
     setIsUpdate(false);
   };
+   const cancelForm = () => {
+    setIsUpdate(false);
+  };
   return (
     <Formik
       initialValues={{
-        name: user?.name || '',
-        email: user?.email || '',
-        password: '',
+        name: user?.name || "",
+        email: user?.email || "",
+        password: "",
       }}
       validationSchema={updateValidateSchema}
       onSubmit={onSubmit}
@@ -36,15 +39,25 @@ const UpdateUserForm = (props) => {
       {() => {
         return (
           <Form>
-            {error && error.includes('409') && <p>Email already exists</p>}
+            {error && error.includes("409") && <p>Email already exists</p>}
             <h2>Update personal data</h2>
-            <Field name="name" type="text" placeholder="Name" />
+            <Field name="name" type="text" placeholder={user?.name || "Name"} />
             <ErrorMessage name="name" />
-            <Field name="email" type="email" placeholder="Email" />
+            <Field
+              name="email"
+              type="email"
+              placeholder={user?.email || "Email"}
+            />
             <ErrorMessage name="email" />
             <Field name="password" type="password" placeholder="Password" />
             <ErrorMessage name="password" />
-            <button type="submit">Update</button>
+           {setIsUpdate ? (
+             <button type="button"  onClick={cancelForm}>
+             Cancel
+             </button>
+           ) : (
+           <button type="submit">Update</button>  
+           )}
           </Form>
         );
       }}

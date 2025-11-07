@@ -33,7 +33,7 @@ const CartDeliveryForm = (props) => {
 
       const response = await createCheckoutSession(order._id, stripeProducts);
       dispatch(clearCart());
-        return response.data?.url && (window.location.href = response.data.url);
+      return response.data?.url && (window.location.href = response.data.url);
     } catch (error) {
       console.log(error);
     }
@@ -52,12 +52,19 @@ const CartDeliveryForm = (props) => {
         return (
           <Form className={styles.inputs}>
             <label>
-              <span>phone</span>
-              <Field name="shippingPhone" type="tel" />
+              <Field
+                name="shippingPhone"
+                type="tel"
+                placeholder="Phone number"
+              />
               <ErrorMessage name="shippingPhone" />
             </label>
             <label>
-              <span>method</span>
+              <Field name="shippingAddress" type="text" placeholder="Address" />
+              <ErrorMessage name="shippingAddress" />
+            </label>
+            <label>
+              <h4>method</h4>
               <Field name="shippingMethod" as="select">
                 {CONSTANTS.SHIPPING_METHOD.map((method) => (
                   <option key={method} value={method}>
@@ -67,11 +74,7 @@ const CartDeliveryForm = (props) => {
               </Field>
               <ErrorMessage name="shippingMethod" />
             </label>
-            <label>
-              <span>address</span>
-              <Field name="shippingAddress" type="text" />
-              <ErrorMessage name="shippingAddress" />
-            </label>
+
             <button type="submit">create order and payment</button>
           </Form>
         );

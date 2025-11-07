@@ -3,20 +3,20 @@
 .home-page,
 .wrapper {
   padding: 0 3%;
-text-align: center;
+  text-align: center;
 }
-.wrapper-nav{
+.wrapper-nav {
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   gap: 15px;
 }
 
 .content {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 .personal-info {
   border-radius: 10px;
@@ -24,24 +24,39 @@ gap: 15px;
   background-color: rgba(223, 223, 223, 0.923);
   margin-top: 20px;
   width: 100%;
- input{
-  border: none;
-  border-radius: 7px;
-  margin: 5px 0;
-  padding: 10px;
-  width: 100%;
- }
+  input {
+    border: none;
+    border-radius: 7px;
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%;
+  }
 }
-.changelog  {
+.changelog {
   text-align: center;
   background-color: rgb(231, 231, 231);
   color: rgb(98, 98, 98);
   border-radius: 15px;
   padding: 5px 7px;
 }
-.category-nav{
-       display: flex;
-          justify-content:center;
-          align-items: center;
-          gap: 15px;
+.category-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+}
+.admin-menu {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  border: 1.5px solid rgb(197, 197, 197);
+  border-radius: 10px;
+  padding: 10px;
+  li {
+    transition: all 0.4s ease;
+    border-bottom: 2px solid transparent;
+  }
+  li:hover {
+    border-bottom: 2px solid rgb(176, 176, 176);
+  }
 }
