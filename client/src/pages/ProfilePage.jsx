@@ -36,7 +36,7 @@ const ProfilePage = () => {
     <section className={styles.wrapper}>
         <article className={styles['personal-info']}>
           {isUpdate ? (
-            <UpdateUserForm setIsUpdate={setIsUpdate}/>
+            <UpdateUserForm setIsUpdate={setIsUpdate} />
           ) : (
             <div >
               <h2>{user?.name}</h2>

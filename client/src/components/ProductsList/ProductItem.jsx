@@ -32,7 +32,7 @@ const ProductItem = (props) => {
       <div className={styles.pic}>
         {images.map(showImages)}
       </div>
-      <h2>price:{price} uah</h2>
+      <h2>price:{price}$</h2>
       <h2>category: {category?.name}</h2>
       <h2 style={{ color: stockQty > 0 ? "#4CAF50" : "#d32f2f" }}>
         {stockQty > 0 ? "Available" : "Not Available"}

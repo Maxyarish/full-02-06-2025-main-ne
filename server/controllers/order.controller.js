@@ -30,8 +30,9 @@ module.exports.createCheckoutSession = async (req, res, next) => {
       mode: "payment",
       success_url: `${CONSTANTS.CLIENT_URL}/success/${req.body.id}`,
       cancel_url: `${CONSTANTS.CLIENT_URL}/cancel/${req.body.id}`,
+  
     });
-    res.status(200).send({id: session.id,url: session.url});
+    res.status(200).send({ id: session.id, url: session.url });
   } catch (error) {
     next(error);
   }

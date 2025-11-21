@@ -29,7 +29,12 @@ const Header = () => {
 
   const showCategory = (category) => (
     <li key={category._id}>
-      <NavLink to={`/categories/${category._id}`}>{category.name}</NavLink>
+      <NavLink
+        to={`/categories/${category._id}`}
+        className={({ isActive }) => (isActive ? styles.active : undefined)}
+      >
+        {category.name}
+      </NavLink>
     </li>
   );
 
@@ -44,6 +49,7 @@ const Header = () => {
     }
   };
 
+  
   return (
     <header className={styles.header}>
       <div className={styles["top-header"]}>
@@ -64,24 +70,29 @@ const Header = () => {
       </div>
 
       <nav>
-        <ul className={styles["main-menu"]}>
+        <ul className={styles["main-menu"]} id="menu">
           <li>
-            <NavLink to="/" className={styles.home}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${styles.home} ${styles.active}` : styles.home
+              }
+            >
               Home
             </NavLink>
           </li>
           {categories?.map(showCategory)}
           <ul className={styles.cart}>
-            <li>
-              <NavLink to="/cart">
-                Cart:
-                <span>
-                  {items.length > 0
-                    ? `${items.length} items: ${totalPrice.toFixed(2)}$`
-                    : "0 items: 0$"}
-                </span>
-              </NavLink>
-            </li>
+              <li>
+                <NavLink to="/cart" className={({ isActive }) => (isActive ? styles.active : undefined)}>
+                  Cart:
+                  <span>
+                    {items.length > 0
+                      ? `${items.length} items: ${totalPrice.toFixed(2)}$`
+                      : "0 items: 0$"}
+                  </span>
+                </NavLink>
+              </li>
           </ul>
 
           <form className={styles.search}>

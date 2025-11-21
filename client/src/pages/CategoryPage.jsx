@@ -12,7 +12,6 @@ const CategoryPage = () => {
   const { selectedCategory, error, isLoading } = useSelector(
     (state) => state.categories
   );
-
   useEffect(() => {
     if (idCategory) {
       dispatch(getOneCategoryThunk(idCategory));
@@ -22,7 +21,11 @@ const CategoryPage = () => {
   return (
     <section className={styles.wrapper}>
       <div className={styles["category-nav"]}>
-          <Link to="/">  <h2>Home</h2></Link>|<h2 className={styles["page-name"]}> {selectedCategory?.name}</h2>
+        <Link to="/">
+          {" "}
+          <h2>Home</h2>
+        </Link>
+        |<h2 className={styles["page-name"]}> {selectedCategory?.name}</h2>
       </div>
 
       {isLoading && <div>Loading...</div>}

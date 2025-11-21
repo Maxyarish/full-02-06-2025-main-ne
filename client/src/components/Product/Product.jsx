@@ -32,7 +32,7 @@ const Product = (props) => {
       </div>
       <div className={styles.info}>
         <h2>{title}</h2>
-        <p className={styles.price}>{price} uah</p>
+        <p className={styles.price}>{price}$</p>
         <p>
           <span>category: </span>
           <Link to={`/categories/${category?._id}`} className={styles.category}>{category?.name}</Link>
